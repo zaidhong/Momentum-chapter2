@@ -1,0 +1,41 @@
+.hidden {
+    display: none;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    /* 초기 배경 이미지 설정 (옵션) */
+    background-image: url('default-image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    background: rgba(0, 0, 0, 0.5); /* 검정색 오버레이, 투명도 조절 */
+    z-index: -1; /* 이미지 뒤에 오버레이 배치 */
+}
+
+.clock {
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    font-size: 5rem;
+}
+
+.contents {
+    padding: 0.5rem;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    width: 50%
+}
