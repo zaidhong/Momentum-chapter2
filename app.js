@@ -1,20 +1,29 @@
-//const loginForm = document.querySelector('#login-form')
+const loginForm = document.querySelector('#login-form')
 const loginInput = document.querySelector('#login-form input')
-const loginButton = document.querySelector('#login-form button')
+const greeting = document.querySelector('#greeting')
 
-function onLoginBtnClick () {
-    const val = loginInput.value
-    if(val === '') {
-        console.log('내용을 적어라')
-    }
-    else if(val.length >= 15){
-        console.log('내용이 길다')
-    } else if(val.length < 4){
-        console.log('내용이 짧다')
-    } else {
-        console.log(val)
-    }
-    
-    
+const HIDDEN_CLASSNAME = 'hidden'
+const USER_NAME_KEY = 'username'
+
+function onLoginSubmit (event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME)
+    const username = loginInput.value
+    localStorage.setItem(USER_NAME_KEY, username)
+    paintGreetings(username)
 }
-loginButton.addEventListener('click', onLoginBtnClick)
+
+function paintGreetings(){
+    greeting.classList.remove(HIDDEN_CLASSNAME)
+    greeting.innerText = `HELLO ${username}`
+}
+
+
+const savedUsername = localStorage.getItem(USER_NAME_KEY)
+
+if(savedUsername === null) {
+    loginForm.classList.remove(HIDDEN_CLASSNAME)
+    loginForm.addEventListener('submit', onLoginSubmit)
+} else {
+    paintGreetings(savedUsername)
+}

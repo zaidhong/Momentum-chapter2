@@ -7,10 +7,11 @@
     <title>Momentum App</title>
 </head>
 <body>
-    <div id="login-form"> <!-- refresh website -->
-        <input required maxlength="15" minlength="5" type="text" placeholder="What is your name?">
-        <button > Login</button>
-    </div>
+    <form id="login-form" class="hidden"> <!-- refresh website -->
+        <input required maxlength="15" minlength="3" type="text" placeholder="What is your name?">
+        <input type="submit" value="Log in"></input>
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
     <script src="./app.js"></script>
 </body>
 </html>
